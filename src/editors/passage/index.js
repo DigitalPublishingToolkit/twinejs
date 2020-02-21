@@ -207,14 +207,14 @@ module.exports = Vue.extend({
 					to grow a syntax tree by itself.
 					*/
 
-					// CodeMirror.modes[modeName].cm = this.$refs.codemirror.$cm;
+					CodeMirror.modes[modeName].cm = this.$refs.easymde.$easymde.codemirror;
 
 					/*
 					Now that's done, we can assign the mode and trigger a
 					re-render.
 					*/
 
-					// this.$refs.codemirror.$cm.setOption('mode', modeName);
+					this.$refs.easymde.$easymde.codemirror.setOption('mode', modeName);
 				}
 			});
 		}
@@ -231,12 +231,12 @@ module.exports = Vue.extend({
 		on whether this passage has only default text in it.
 		*/
 
-		// if (this.passage.text === passageDefaults.text) {
-		// 	this.$refs.easymde.$easymde.codemirror.execCommand('selectAll')
-		// }
-		// else {
-		// 	this.$refs.easymde.$easymde.codemirror.execCommand('goDocEnd')
-		// }
+		if (this.passage.text === passageDefaults.text) {
+			this.$refs.easymde.$easymde.codemirror.execCommand('selectAll')
+		}
+		else {
+			this.$refs.easymde.$easymde.codemirror.execCommand('goDocEnd')
+		}
 	},
 
 	destroyed() {

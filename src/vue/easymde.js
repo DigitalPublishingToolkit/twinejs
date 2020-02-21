@@ -9,7 +9,7 @@ require('./easymde-theme.less');
 
 module.exports = Vue.extend({
 	template: '<textarea></textarea>',
-	props: ['text'],
+	props: ['options', 'text'],
 
 	watch: {
 		text() {
@@ -42,14 +42,13 @@ module.exports = Vue.extend({
 			element: this.$el,
 			toolbar: ["bold", "italic", "heading", "|", "quote", footnoteButton, "|", "unordered-list","ordered-list", "|", "link", "image", "|", "preview", "guide"],
 			forceSync: true,
-			placeholder: locale.say(
-				'Enter the body text of your passage here. To link to another ' +
-				'passage, put two square brackets around its name, [[like ' +
-				'this]].'
-			)
+			placeholder: this.options.placeholder
 		});
 
 		this.$easymde.codemirror.focus();
+
+		this.$easymde.codemirror.setOption('prefixTrigger', this.options.prefixTrigger);
+		this.$easymde.codemirror.setOption('extraKeys', this.options.extraKeys);
 
 		this.$easymde.value((this.text || '') + '');
 
@@ -64,6 +63,15 @@ module.exports = Vue.extend({
 		this.$easymde.toTextArea();
 		this.$easymde = null;
 	},
+
+	events: {
+		// Since CodeMirror initialises incorrectly when special CSS such as
+		// scaleY is present on its containing element, it should be
+		// refreshed once transition is finished - hence, this event.
+		'transition-entered'() {
+			this.$easymde.codemirror.refresh();
+		}
+	}
 });
 
 // Vue.directive('simplemde', {

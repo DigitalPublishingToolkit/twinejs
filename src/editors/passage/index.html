@@ -10,7 +10,7 @@
 	</p>
 
 	<div class="editor">
-		<easymde :text="passage.text" @cm-change="saveText" v-ref:easymde></easymde>
+		<easymde :options="cmOptions" :text="passage.text" @cm-change="saveText" v-ref:easymde></easymde>
 	</div>
 
 	<!-- <div id="simplemde">
