@@ -72,7 +72,7 @@ module.exports = Vue.extend({
 					passage.id !== this.passage.id
 			));
 		},
-		
+
 		autocompletions() {
 			return this.parentStory.passages.map(passage => passage.name);
 		}
@@ -207,14 +207,14 @@ module.exports = Vue.extend({
 					to grow a syntax tree by itself.
 					*/
 
-					CodeMirror.modes[modeName].cm = this.$refs.codemirror.$cm;
+					// CodeMirror.modes[modeName].cm = this.$refs.codemirror.$cm;
 
 					/*
 					Now that's done, we can assign the mode and trigger a
 					re-render.
 					*/
 
-					this.$refs.codemirror.$cm.setOption('mode', modeName);
+					// this.$refs.codemirror.$cm.setOption('mode', modeName);
 				}
 			});
 		}
@@ -224,19 +224,19 @@ module.exports = Vue.extend({
 		it fulfils.
 		*/
 
-		this.$refs.codemirror.$cm.setOption('mode', 'text');
+		this.$refs.simplemde.$simplemde.codemirror.setOption('mode', 'text');
 
 		/*
 		Either move the cursor to the end or select the existing text, depending
 		on whether this passage has only default text in it.
 		*/
 
-		if (this.passage.text === passageDefaults.text) {
-			this.$refs.codemirror.$cm.execCommand('selectAll');
-		}
-		else {
-			this.$refs.codemirror.$cm.execCommand('goDocEnd');
-		}
+		// if (this.passage.text === passageDefaults.text) {
+		// 	this.$refs.simplemde.$simplemde.codemirror.execCommand('selectAll')
+		// }
+		// else {
+		// 	this.$refs.simplemde.$simplemde.codemirror.execCommand('goDocEnd')
+		// }
 	},
 
 	destroyed() {
@@ -244,7 +244,8 @@ module.exports = Vue.extend({
 	},
 
 	components: {
-		'code-mirror': require('../../vue/codemirror'),
+		// 'code-mirror': require('../../vue/codemirror'),
+		'simplemde': require('../../vue/simplemde'),
 		'modal-dialog': require('../../ui/modal-dialog'),
 		'tag-editor': require('./tag-editor')
 	},

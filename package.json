@@ -48,11 +48,13 @@
 		"scroll": "^2.0.0",
 		"segseg": "^0.2.2",
 		"semver-utils": "^1.1.1",
+		"simplemde": "^1.11.2",
 		"tether-drop": "^1.4.2",
 		"tiny-uuid": "^1.0.0",
 		"unfetch": "^3.0.0",
 		"vue": "^1.0.18",
 		"vue-router": "^0.7.13",
+		"vue-simplemde": "0.4.0",
 		"vuex": "^1.0.0"
 	},
 	"devDependencies": {
