@@ -54,6 +54,8 @@ module.exports = Vue.extend({
 
 		var self = this;
 
+		this.$easymde.codemirror.clearHistory();
+
 		this.$easymde.codemirror.on("change", function() {
 			self.$dispatch('cm-change', self.$easymde.value());
 		});
