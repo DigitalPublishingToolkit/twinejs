@@ -224,7 +224,7 @@ module.exports = Vue.extend({
 		it fulfils.
 		*/
 
-		this.$refs.simplemde.$simplemde.codemirror.setOption('mode', 'text');
+		this.$refs.easymde.$easymde.codemirror.setOption('mode', 'text');
 
 		/*
 		Either move the cursor to the end or select the existing text, depending
@@ -232,10 +232,10 @@ module.exports = Vue.extend({
 		*/
 
 		// if (this.passage.text === passageDefaults.text) {
-		// 	this.$refs.simplemde.$simplemde.codemirror.execCommand('selectAll')
+		// 	this.$refs.easymde.$easymde.codemirror.execCommand('selectAll')
 		// }
 		// else {
-		// 	this.$refs.simplemde.$simplemde.codemirror.execCommand('goDocEnd')
+		// 	this.$refs.easymde.$easymde.codemirror.execCommand('goDocEnd')
 		// }
 	},
 
@@ -245,7 +245,7 @@ module.exports = Vue.extend({
 
 	components: {
 		// 'code-mirror': require('../../vue/codemirror'),
-		'simplemde': require('../../vue/simplemde'),
+		'easymde': require('../../vue/easymde'),
 		'modal-dialog': require('../../ui/modal-dialog'),
 		'tag-editor': require('./tag-editor')
 	},

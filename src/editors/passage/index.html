@@ -9,7 +9,9 @@
 		{{ 'A passage already exists with this name.' | say }}
 	</p>
 
-	<simplemde :text="passage.text" @cm-change="saveText" v-ref:simplemde></simplemde>
+	<div class="editor">
+		<easymde :text="passage.text" @cm-change="saveText" v-ref:easymde></easymde>
+	</div>
 
 	<!-- <div id="simplemde">
 		<textarea v-simplemde=passage.text @cm-change="saveText"></textarea>

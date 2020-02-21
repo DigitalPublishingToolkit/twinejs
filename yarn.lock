@@ -2175,7 +2175,7 @@ code-point-at@^1.0.0:
   resolved "https://registry.yarnpkg.com/code-point-at/-/code-point-at-1.1.0.tgz#0d070b4d043a5bea33a2f1a40e2edb3d9a4ccf77"
   integrity sha1-DQcLTQQ6W+ozovGkDi7bPZpMz3c=
 
-codemirror-spell-checker@*:
+codemirror-spell-checker@*, codemirror-spell-checker@1.1.2:
   version "1.1.2"
   resolved "https://registry.yarnpkg.com/codemirror-spell-checker/-/codemirror-spell-checker-1.1.2.tgz#1c660f9089483ccb5113b9ba9ca19c3f4993371e"
   integrity sha1-HGYPkIlIPMtRE7m6nKGcP0mTNx4=
@@ -2191,6 +2191,11 @@ codemirror@^5.5.0:
   version "5.42.0"
   resolved "https://registry.yarnpkg.com/codemirror/-/codemirror-5.42.0.tgz#2d5b640ed009e89dee9ed8a2a778e2a25b65f9eb"
   integrity sha512-pbApC8zDzItP3HRphD6kQVwS976qB5Qi0hU3MZMixLk+AyugOW1RF+8XJEjeyl5yWsHNe88tDUxzeRh5AOxPRw==
+
+codemirror@^5.50.2:
+  version "5.52.0"
+  resolved "https://registry.yarnpkg.com/codemirror/-/codemirror-5.52.0.tgz#4dbd6aef7f0e63db826b9a23922f0c03ac75c0a7"
+  integrity sha512-K2UB6zjscrfME03HeRe/IuOmCeqNpw7PLKGHThYpLbZEuKf+ZoujJPhxZN4hHJS1O7QyzEsV7JJZGxuQWVaFCg==
 
 collection-visit@^1.0.0:
   version "1.0.0"
@@ -3090,6 +3095,15 @@ duplexify@^3.4.2, duplexify@^3.6.0:
     inherits "^2.0.1"
     readable-stream "^2.0.0"
     stream-shift "^1.0.0"
+
+easymde@^2.9.0:
+  version "2.9.0"
+  resolved "https://registry.yarnpkg.com/easymde/-/easymde-2.9.0.tgz#1b02dc330596d75c9e40b09c52250759f9543dc2"
+  integrity sha512-Gii/wv7ZmDTgBmD9QBKbU9uiyzspWYNUH/+hH+jlQmBiNM73ShGWX6DtrL/ARzD5sYqPY6yX/6U9M3RayAgDdA==
+  dependencies:
+    codemirror "^5.50.2"
+    codemirror-spell-checker "1.1.2"
+    marked "^0.8.0"
 
 ecc-jsbn@~0.1.1:
   version "0.1.2"
@@ -6213,7 +6227,7 @@ map-visit@^1.0.0:
   dependencies:
     object-visit "^1.0.0"
 
-marked@*:
+marked@*, marked@^0.8.0:
   version "0.8.0"
   resolved "https://registry.yarnpkg.com/marked/-/marked-0.8.0.tgz#ec5c0c9b93878dc52dd54be8d0e524097bd81a99"
   integrity sha512-MyUe+T/Pw4TZufHkzAfDj6HarCBWia2y27/bhuYkTaiUnfDYFnCP3KUN+9oM7Wi6JA2rymtVYbQu3spE0GCmxQ==

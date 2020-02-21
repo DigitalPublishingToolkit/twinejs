@@ -1,11 +1,11 @@
 // A lightweight Vue component that wraps a StackEdit instance.
 
 const Vue = require('vue');
-const SimpleMDE = require('simplemde');
+const EasyMDE = require('easymde');
 const locale = require('../locale');
 
 require('./codemirror-theme.less');
-require('./simplemde-theme.less');
+require('./easymde-theme.less');
 
 module.exports = Vue.extend({
 	template: '<textarea></textarea>',
@@ -16,8 +16,8 @@ module.exports = Vue.extend({
 			// Only change SimpleMDE if it's actually a meaningful change,
 			// e.g. not the result of SimpleMDE itself changing.
 
-			if (this.text !== this.$simplemde.value()) {
-				this.$simplemde.value(this.text);
+			if (this.text !== this.$easymde.value()) {
+				this.$easymde.value(this.text);
 			}
 		}
 	},
@@ -29,7 +29,7 @@ module.exports = Vue.extend({
 		    var cm = editor.codemirror;
 		    var output = '';
 		    var selectedText = cm.getSelection();
-		    var text = selectedText || 'placeholder';
+		    var text = selectedText || 'my footnote';
 
 		    output = '^[' + text + ']';
 		    cm.replaceSelection(output);
@@ -38,7 +38,7 @@ module.exports = Vue.extend({
 			title: "Footnote",
 		};
 
-		this.$simplemde = new SimpleMDE({
+		this.$easymde = new EasyMDE({
 			element: this.$el,
 			toolbar: ["bold", "italic", "heading", "|", "quote", footnoteButton, "|", "unordered-list","ordered-list", "|", "link", "image", "|", "preview", "guide"],
 			forceSync: true,
@@ -49,20 +49,20 @@ module.exports = Vue.extend({
 			)
 		});
 
-		this.$simplemde.codemirror.focus();
+		this.$easymde.codemirror.focus();
 
-		this.$simplemde.value((this.text || '') + '');
+		this.$easymde.value((this.text || '') + '');
 
 		var self = this;
 
-		this.$simplemde.codemirror.on("change", function() {
-			self.$dispatch('cm-change', self.$simplemde.value());
+		this.$easymde.codemirror.on("change", function() {
+			self.$dispatch('cm-change', self.$easymde.value());
 		});
 	},
 
 	unbind() {
-		this.$simplemde.toTextArea();
-		this.$simplemde = null;
+		this.$easymde.toTextArea();
+		this.$easymde = null;
 	},
 });
 
