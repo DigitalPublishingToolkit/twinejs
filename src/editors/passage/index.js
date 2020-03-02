@@ -51,8 +51,7 @@ module.exports = Vue.extend({
 				},
 				indentWithTabs: true,
 				lineWrapping: true,
-				lineNumbers: false,
-				mode: 'text'
+				lineNumbers: false
 			};
 		},
 
@@ -207,14 +206,13 @@ module.exports = Vue.extend({
 					to grow a syntax tree by itself.
 					*/
 
-					CodeMirror.modes[modeName].cm = this.$refs.easymde.$easymde.codemirror;
+					CodeMirror.modes[modeName].cm = this.$refs.hypermd.$hyperMD;
 
 					/*
 					Now that's done, we can assign the mode and trigger a
 					re-render.
 					*/
-
-					this.$refs.easymde.$easymde.codemirror.setOption('mode', modeName);
+					// this.$refs.hypermd.$hyperMD.setOption('mode', modeName);
 				}
 			});
 		}
@@ -224,7 +222,7 @@ module.exports = Vue.extend({
 		it fulfils.
 		*/
 
-		this.$refs.easymde.$easymde.codemirror.setOption('mode', 'text');
+		// this.$refs.hypermd.$hyperMD.setOption('mode', 'text');
 
 		/*
 		Either move the cursor to the end or select the existing text, depending
@@ -232,10 +230,10 @@ module.exports = Vue.extend({
 		*/
 
 		if (this.passage.text === passageDefaults.text) {
-			this.$refs.easymde.$easymde.codemirror.execCommand('selectAll')
+			this.$refs.hypermd.$hyperMD.execCommand('selectAll')
 		}
 		else {
-			this.$refs.easymde.$easymde.codemirror.execCommand('goDocEnd')
+			this.$refs.hypermd.$hyperMD.execCommand('goDocEnd')
 		}
 	},
 
@@ -245,7 +243,7 @@ module.exports = Vue.extend({
 
 	components: {
 		// 'code-mirror': require('../../vue/codemirror'),
-		'easymde': require('../../vue/easymde'),
+		'hypermd': require('../../vue/hypermd'),
 		'modal-dialog': require('../../ui/modal-dialog'),
 		'tag-editor': require('./tag-editor')
 	},
