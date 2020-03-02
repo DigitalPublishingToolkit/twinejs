@@ -24,6 +24,8 @@ const config = (module.exports = {
 	},
 	module: {
 		rules: [
+			{ include: /hypermd|codemirror/, test: [/\.css$/], use: [ { loader: 'style-loader' }, { loader: 'css-loader' } ] },
+			{ test: /\.(png|jpg|gif)$/, loader: 'url-loader?limit=8192&name=./static/img/[hash].[ext]', },
 			/*
 			Inline resources below 10k in size.
 			*/
