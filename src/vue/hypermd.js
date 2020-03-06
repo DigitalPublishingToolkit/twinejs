@@ -38,6 +38,11 @@ module.exports = Vue.extend({
 				icon: 'fa-link',
 				action: '[placeholder](https://)',
 			},
+			{
+				label: 'Image',
+				icon: 'fa-image',
+				action: '![placeholder](https://)',
+			},
 			{ label: 'Footnote',
 				icon: 'fa-sticky-note',
 				action: '[^placeholder]',
