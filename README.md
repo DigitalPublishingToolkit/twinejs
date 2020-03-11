@@ -3,6 +3,9 @@
 by Chris Klimas, Leon Arnott, Daithi O Crualaoich, Ingrid Cheung, Thomas Michael
 Edwards, Micah Fitch, Juhana Leinonen, Michael Savich, and Ross Smith
 
+### IMPORTANT NOTE
+This fork of Twine adds a Markdown editor to passages and uses a modified version of Harlowe to display footnotes. This currently a work in progress and a proof of concept. Please use the official version of Twine for production work.
+
 ### SYNOPSIS
 
 This is a port of Twine to a browser and Electron app. See
