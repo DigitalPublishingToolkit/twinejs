@@ -34,11 +34,6 @@ module.exports = Vue.extend({
 				action: '*placeholder*',
 			},
 			{
-				label: 'Hyperlink',
-				icon: 'fa-link',
-				action: '[placeholder](https://)',
-			},
-			{
 				label: 'Image',
 				icon: 'fa-image',
 				action: '![placeholder](https://)',
@@ -60,7 +55,23 @@ module.exports = Vue.extend({
 			buttonElement.innerHTML = '<i class="fa '+button.icon+'"></i>';
 			buttonElement.onclick = () => {
 				var selection = self.$hyperMD.getSelection();
-				self.$hyperMD.replaceSelection(button.action.replace(/placeholder/gi, selection));
+
+				if (button.label === 'Footnote') {
+					var footnotes = [];
+					this.$hyperMD.eachLine((line) => {
+						var tokens = this.$hyperMD.getLineTokens(line.lineNo());
+						tokens.forEach((token) => {
+							if (token.string.match(/\^\d+$/)) {
+								footnotes.push(token);
+							}
+						});
+					});
+					var footnoteNumber = (footnotes.length / 2)+1;
+					self.$hyperMD.replaceSelection(button.action.replace(/placeholder/gi, footnoteNumber));
+					self.$hyperMD.replaceRange("\n[^"+footnoteNumber+"]: Footnote content\n", {line: Infinity});
+				} else {
+					self.$hyperMD.replaceSelection(button.action.replace(/placeholder/gi, selection));
+				}
 			};
 			buttonElement.classList.add('hypermd-btn');
 			this.toolbar.append(buttonElement);
@@ -75,10 +86,6 @@ module.exports = Vue.extend({
 
 		this.$hyperMD.on("change", function() {
 		 	self.$dispatch('cm-change', self.$hyperMD.getValue());
-		});
-
-		this.$hyperMD.eachLine((line) => {
-			console.log(this.$hyperMD.getLineTokens(line.lineNo()));
 		});
 	},
 
