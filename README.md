@@ -4,7 +4,7 @@ by Chris Klimas, Leon Arnott, Daithi O Crualaoich, Ingrid Cheung, Thomas Michael
 Edwards, Micah Fitch, Juhana Leinonen, Michael Savich, and Ross Smith
 
 ### IMPORTANT NOTE
-This fork of Twine adds a Markdown editor to passages and uses a modified version of Harlowe to display footnotes. This currently a work in progress and a proof of concept. Please use the official version of Twine for production work.
+This fork of Twine adds a Markdown editor to passages, sets the default story format to Snowman and uses a modified version of Snowman to display footnotes. The forked repository for Snowman can be found [here](https://github.com/mensch/snowman). This currently a work in progress and a proof of concept. Please use the official version of Twine for production work.
 
 ### SYNOPSIS
 
