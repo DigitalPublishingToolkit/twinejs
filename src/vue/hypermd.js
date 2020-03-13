@@ -85,6 +85,7 @@ module.exports = Vue.extend({
 
 		this.$hyperMD = HyperMD.fromTextArea(this.textArea, this.options);
 
+		this.$hyperMD.setSize(null, '100%');
 		this.$hyperMD.setValue((this.text || '') + '');
 		this.$hyperMD.focus();
 
