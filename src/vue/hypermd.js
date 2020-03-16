@@ -72,7 +72,7 @@ module.exports = Vue.extend({
 					});
 					var footnoteNumber = (footnotes.length / 2)+1;
 					self.$hyperMD.replaceSelection(button.action.replace(/placeholder/gi, footnoteNumber));
-					self.$hyperMD.replaceRange("\n[^"+footnoteNumber+"]: Footnote content\n", {line: Infinity});
+					self.$hyperMD.replaceRange("\n\n[^"+footnoteNumber+"]: Footnote content\n", {line: Infinity});
 				} else {
 					self.$hyperMD.replaceSelection(button.action.replace(/placeholder/gi, selection));
 				}
